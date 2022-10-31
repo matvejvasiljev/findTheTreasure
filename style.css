@@ -70,4 +70,6 @@ p {
     width: 50px;
     top: 0;
     left: 60px;
+    transition: 1s;
+    pointer-events: none;
 }
