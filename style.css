@@ -53,6 +53,15 @@ p {
     font-size: 40px;
 }
 
+#restartButton {
+    transition: 0.2s;
+    margin-top: 20px;
+}
+
+#restartButton:hover {
+    scale: 1.1;
+}
+
 
 .game {
     position: relative;
