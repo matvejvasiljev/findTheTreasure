@@ -59,9 +59,42 @@ p {
 }
 
 #restartButton:hover {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 
+ul {
+    position: absolute;
+    top: 0;
+    left: 500px;
+}
+
+li {
+    height: 100px;
+    width: 120px;
+    background-color: white;
+    line-height: 80px;
+    list-style: none;
+    transition: 0.15s;
+}
+
+#map0 {
+    border-radius: 10px 10px 0 0;
+}
+
+#map1 {
+    border-radius: 0 0 10px 10px;
+}
+
+li:hover {
+    background-color: #eee;
+    transform: scale(1.1);
+    border-radius: 10px !important;
+}
+
+li img {
+    width: 70px;
+    margin-top: 15px;
+}
 
 .game {
     position: relative;
@@ -81,4 +114,27 @@ p {
     left: 60px;
     transition: 1s;
     pointer-events: none;
+}
+
+#treasure {
+    position: absolute;
+    top: 235px;
+    left: 235px;
+    width: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 2s;
+    filter: drop-shadow(0 0 5px black);
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px black);
+        transform: scale(5);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px gold);
+        transform: scale(5.5);
+    }
 }

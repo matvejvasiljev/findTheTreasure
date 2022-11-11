@@ -2,11 +2,15 @@ let pirate = document.getElementById("pirate")
 let map = document.getElementById("map")
 let hintBox = document.getElementById("hintBox")
 let restartButton = document.getElementById("restartButton")
+let treasure = document.getElementById("treasure")
 
-let steps = 0
+let map0 = document.getElementById("map0")
+let map1 = document.getElementById("map1")
 
 let treasureX = Math.floor(Math.random() * 450 + 25)
 let treasureY = Math.floor(Math.random() * 450 + 25)
+
+let steps = 0
 
 console.log("сокровище: " + treasureX + ", " + treasureY)
 
@@ -18,6 +22,17 @@ restartButton.onclick = function () {
     hintBox.innerHTML = "Good luck!"
     map.style.pointerEvents = "auto"
     steps = 0
+    treasure.style.opacity = 0
+    treasure.style.animation = "none"
+    treasure.style.transform = "scale(1)"
+}
+
+map0.onclick = function () {
+    map.src = "./images/treasureMap0.png"
+}
+
+map1.onclick = function () {
+    map.src = "./images/treasureMap1.png"
 }
 
 map.onclick = function (event) {
@@ -37,6 +52,11 @@ map.onclick = function (event) {
     if (distance < 15) {
         hintBox.innerHTML = "You won! It took you " + steps + " steps"
         map.style.pointerEvents = "none"
+        treasure.style.opacity = 1
+        treasure.style.transform = "scale(5)"
+        setTimeout(function(){
+            treasure.style.animation = "glow 3s ease-in-out infinite alternate"
+        }, 2000)
     }
     else if (distance < 30) {
         hintBox.innerHTML = "Hotter than the sun"
